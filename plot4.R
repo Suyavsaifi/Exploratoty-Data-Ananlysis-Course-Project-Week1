@@ -1,6 +1,10 @@
-#We have already attached data in plot1.R file we will use it directly with loading
-#it gain into this code. Kindly refer the plot1.R file see the prior steps of 
-#data attaching
+#Reading data into R
+
+data <- read.table("household_power_consumption.txt", header=TRUE, sep=";", stringsAsFactors=FALSE, dec=".")
+
+#Subsetting 1 feb and 2 feb data
+
+subSetData <- data[data$Date %in% c("1/2/2007","2/2/2007") ,]
 
 datetime <- strptime(paste(subSetData$Date, subSetData$Time, sep=" "), "%d/%m/%Y %H:%M:%S") 
 
